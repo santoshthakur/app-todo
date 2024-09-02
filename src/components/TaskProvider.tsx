@@ -1,13 +1,13 @@
-import React, { createContext, useState } from "react";
-import { TodoType } from "./Addtodo";
+import React, { createContext, ReactNode, useState } from "react";
+import { TodoType } from "./AddTodo";
 
 export const TaskContext = createContext<{
-  setTasks: any;
-  tasks: Array<TodoType>;
+  setTasks: React.Dispatch<React.SetStateAction<TodoType[]>>;
+  tasks: TodoType[];
 }>({ setTasks: () => {}, tasks: [] });
 
 interface ITaskProvider {
-  children: any;
+  children: ReactNode;
 }
 const TaskProvider: React.FC<ITaskProvider> = ({ children }) => {
   const [tasks, setTasks] = useState<Array<TodoType>>(

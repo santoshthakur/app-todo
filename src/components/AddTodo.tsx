@@ -7,7 +7,7 @@ export interface TodoType {
   isCompleted: boolean;
 }
 
-const Addtodo: React.FC = () => {
+const AddTodo: React.FC = () => {
   const { tasks } = useContext(TaskContext);
 
   // Save tasks to localStorage whenever tasks change
@@ -15,9 +15,6 @@ const Addtodo: React.FC = () => {
     localStorage.setItem("todoList", JSON.stringify(tasks));
   }, [tasks]);
 
-  // useEffect(()=>{
-  //     alert("Call function")
-  // },[editing])
   return (
     <>
       <CreateTaskForm />
@@ -26,4 +23,4 @@ const Addtodo: React.FC = () => {
   );
 };
 
-export default Addtodo;
+export default AddTodo;

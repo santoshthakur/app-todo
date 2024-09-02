@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { TaskContext } from "./TaskProvider";
-import { TodoType } from "./Addtodo";
+import { TodoType } from "./AddTodo";
 interface ITodoItems {}
 
 const TodoItems: React.FC<ITodoItems> = () => {
@@ -16,10 +16,6 @@ const TodoItems: React.FC<ITodoItems> = () => {
     setIsEditing(true);
     setCurrentTaskIndex(index);
     setEditTaskInput(currentTask.topic);
-    // else {
-    //   alert(`Can't edit this task because task Has been completed.`)
-    // }
-    // alert(`Edit item ${currentTask.topic} ${index}`)
   };
   const taskStatus = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -53,7 +49,7 @@ const TodoItems: React.FC<ITodoItems> = () => {
     <>
       <ul className="list-none m-0 p-0">
         {tasks.map((task, index) => (
-          <li className="mb-3 border-b">
+          <li key={index} className="mb-3 border-b">
             <div className="flex items-cener py-2 items-center">
               <div>
                 <input
